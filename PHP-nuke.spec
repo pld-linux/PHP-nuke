@@ -48,7 +48,7 @@ mysql nuke < %{_docdir}/%{name}-%{version}/nuke.sql
 (wiêcej informacji w %{_docdir}/%{name}-%{version}/README.first)
 
 %prep
-%setup -q
+%setup -q -c
 
 install %{SOURCE1} README.first
 
