@@ -62,7 +62,7 @@ install -d $RPM_BUILD_ROOT{%{_nukeroot},/etc/httpd}
 
 cp -ar html/* $RPM_BUILD_ROOT%{_nukeroot}
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/httpd/phpnuke.conf
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/httpd/phpnuke.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
