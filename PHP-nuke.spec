@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Databases/Interfaces
 Source0:	http://prdownloads.sourceforge.net/phpnuke/PHP-Nuke-%{version}.tar.gz
-Source1:	PHP-Nuke-README.first.bz2
+Source1:	PHP-Nuke.README.first
 Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
 Requires:	php-mysql
@@ -37,9 +37,7 @@ Wystarczy zrobiæ jedno: mysqladmin create nuke mysql nuke < \
 
 %prep
 %setup -q -c %{name}-%{version}
-
-cp -f %{SOURCE1} README.first.bz2
-bunzip2 *.bz2
+install %{SOURCE1} README.first
 
 # (TV): workaround for bad tarball
 find -type d -exec chmod 755 '{}' \;
