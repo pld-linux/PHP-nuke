@@ -14,7 +14,6 @@ License:	GPL
 Group:		Applications/Databases/Interfaces
 Source0:	http://phpnuke.org/files/PHP-Nuke-%{version}.zip
 # Source0-md5:	49ccda4e5b2862b8ba9ab8a1cc8b52d7
-# Source0-size:	3961035
 Source1:	PHP-Nuke.README.first
 #Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
@@ -76,7 +75,5 @@ fi
 %doc Support* Upgrade* sql/nuke.sql upgrades
 %dir %{_nukeroot}
 %config(noreplace) %attr(640,http,http) %{_nukeroot}/config.php
-%{_nukeroot}/[^c]*
+%{_nukeroot}/[!c]*
 # more needed?
-
-%triggerpostun --
