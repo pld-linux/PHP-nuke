@@ -5,7 +5,7 @@ Version:	6.0
 Release:	2
 License:	GPL
 Group:		Applications/Databases/Interfaces
-Source0:	http://prdownloads.sourceforge.net/phpnuke/PHP-Nuke-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/phpnuke/PHP-Nuke-%{version}.tar.gz
 Source1:	PHP-Nuke.README.first
 Patch0:		%{name}-official_fix.patch
 Icon:		phpnuke.gif
