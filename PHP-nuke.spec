@@ -15,7 +15,7 @@ Requires:	webserver
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		nukeroot	/home/httpd/html/nuke
+%define		nukeroot	/home/services/httpd/html/nuke
 
 %description
 Web-portal writen in php. Very powerful, yet easy to install and use:
