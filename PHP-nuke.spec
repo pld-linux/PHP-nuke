@@ -15,6 +15,7 @@ Group:		Applications/Databases/Interfaces
 Source0:	http://phpnuke.org/files/PHP-Nuke-%{version}.zip
 # Source0-md5:	49ccda4e5b2862b8ba9ab8a1cc8b52d7
 Source1:	PHP-Nuke.README.first
+Source2:	%{name}.conf
 #Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
 Requires:	php-mysql
@@ -57,22 +58,53 @@ chmod 755 */*/*/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_nukeroot}
+install -d $RPM_BUILD_ROOT{%{_nukeroot},/etc/httpd}
 
 cp -ar html/* $RPM_BUILD_ROOT%{_nukeroot}
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/httpd/phpnuke.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %triggerpostun -- %{name} <= 7.4-2
-if [ -s /etc/httpd/httpd.conf/lstat.conf ]; then
+if [ -s /home/services/httpd/html/nuke/config.php ]; then
 	mv -f /home/services/httpd/html/nuke/config.php %{_nukeroot}
+fi
+
+%post
+if [ -f /etc/httpd/httpd.conf ] && ! grep -q "^Include.*phpnuke.conf" /etc/httpd/httpd.conf; then
+	echo "Include /etc/httpd/phpnuke.conf" >> /etc/httpd/httpd.conf
+	if [ -f /var/lock/subsys/httpd ]; then
+		/usr/sbin/apachectl restart 1>&2
+	fi
+elif [ -d /etc/httpd/httpd.conf ]; then
+	ln -sf /etc/httpd/phpnuke.conf /etc/httpd/httpd.conf/phpnuke.conf
+	if [ -f /var/lock/subsys/httpd ]; then
+		/usr/sbin/apachectl restart 1>&2
+	fi
+fi
+
+%preun
+if [ "$1" = "0" ]; then
+	umask 027
+	if [ -d /etc/httpd/httpd.conf ]; then
+		rm -f /etc/httpd/httpd.conf/99_phpnuke.conf
+	else
+		grep -v "^Include.*phpnuke.conf" /etc/httpd/httpd.conf > \
+			/etc/httpd/httpd.conf.tmp
+		mv -f /etc/httpd/httpd.conf.tmp /etc/httpd/httpd.conf
+	fi
+	if [ -f /var/lock/subsys/httpd ]; then
+		/usr/sbin/apachectl restart 1>&2
+	fi
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc Addons* Blocks* Changes* Credits* Install* README* Readme*
 %doc Support* Upgrade* sql/nuke.sql upgrades
+%config(noreplace) %verify(not size mtime md5) /etc/httpd/phpnuke.conf
 %dir %{_nukeroot}
 %config(noreplace) %attr(640,http,http) %{_nukeroot}/config.php
 %{_nukeroot}/[!c]*
