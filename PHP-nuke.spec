@@ -6,6 +6,7 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Jun/1010420.html
 # - SECURITY: http://securitytracker.com/alerts/2004/May/1010186.html
 # - SECURITY: http://securitytracker.com/alerts/2004/May/1010177.html
+# - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010924.html
 Summary:	Slashdot-like webnews site written in php, easy to install and use
 Summary(pl):	Serwis nowinek WWW w stylu Slashdota napisany w PHP, ³atwy w instalacji i u¿ywaniu
 Name:		PHP-nuke
