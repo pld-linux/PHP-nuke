@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		Applications/Databases/Interfaces
 Source0:	http://dl.sourceforge.net/phpnuke/PHP-Nuke-%{version}.tar.gz
+# Source0-md5:	4d34a3fcc7785b48efbc58497e5e3601
 Source1:	PHP-Nuke.README.first
 Patch0:		%{name}-official_fix.patch
 Patch1:		%{name}-official_security.patch
