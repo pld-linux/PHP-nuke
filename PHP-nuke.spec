@@ -8,15 +8,14 @@
 Summary:	Slashdot-like webnews site written in php, easy to install and use
 Summary(pl):	Serwis nowinek WWW w stylu Slashdota napisany w PHP, ³atwy w instalacji i u¿ywaniu
 Name:		PHP-nuke
-Version:	7.4
-Release:	2
+Version:	7.5
+Release:	1
 License:	GPL
 Group:		Applications/Databases/Interfaces
 Source0:	http://phpnuke.org/files/PHP-Nuke-%{version}.zip
-# Source0-md5:	d8651f9f39e1c8e191030bb9df48f0bd
+# Source0-md5:	49ccda4e5b2862b8ba9ab8a1cc8b52d7
 # Source0-size:	3961035
 Source1:	PHP-Nuke.README.first
-Patch0:		%{name}-admin.php.patch
 #Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
 Requires:	php-mysql
@@ -25,7 +24,7 @@ Requires:	webserver
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		nukeroot	/home/services/httpd/html/nuke
+%define		_nukeroot	%{_datadir}/phpnuke
 
 %description
 Web-portal writen in php. Very powerful, yet easy to install and use:
@@ -48,7 +47,6 @@ Wystarczy zrobiæ jedno: mysqladmin create nuke mysql nuke < \
 
 %prep
 %setup -q -c %{name}-%{version}
-%patch0 -p1
 
 install %{SOURCE1} README.first
 
@@ -60,18 +58,25 @@ chmod 755 */*/*/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{nukeroot}
+install -d $RPM_BUILD_ROOT%{_nukeroot}
 
-cp -ar html/* $RPM_BUILD_ROOT%{nukeroot}
+cp -ar html/* $RPM_BUILD_ROOT%{_nukeroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%triggerpostun -- %{name} <= 7.4-2
+if [ -s /etc/httpd/httpd.conf/lstat.conf ]; then
+	mv -f /home/services/httpd/html/nuke/config.php %{_nukeroot}
+fi
 
 %files
 %defattr(644,root,root,755)
 %doc Addons* Blocks* Changes* Credits* Install* README* Readme*
 %doc Support* Upgrade* sql/nuke.sql upgrades
-%dir %{nukeroot}
-%config(noreplace) %attr(640,http,http) %{nukeroot}/config.php
-%{nukeroot}/[^c]*
+%dir %{_nukeroot}
+%config(noreplace) %attr(640,http,http) %{_nukeroot}/config.php
+%{_nukeroot}/[^c]*
 # more needed?
+
+%triggerpostun --
