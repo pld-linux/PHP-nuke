@@ -30,8 +30,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Web-portal writen in php. Very powerful, yet easy to install and use:
 see documentation in %{_docdir}/%{name}-%{version} for details.
 
-You only have to run: mysqladmin create nuke mysql nuke < \
-%{_docdir}/%{name}-%{version}/nuke.sql
+You only have to run:
+mysqladmin create nuke
+mysql nuke < %{_docdir}/%{name}-%{version}/nuke.sql
 
 (read %{_docdir}/%{name}-%{version}/README.first for further
 information)
@@ -40,13 +41,14 @@ information)
 Portal WWW napisany w PHP. Ma du¿e mo¿liwo¶ci, jest ³atwy w instalacji
 u u¿ywaniu. Szczegó³y w dokumentacji w %{_docdir}/%{name}-%{version}.
 
-Wystarczy zrobiæ jedno: mysqladmin create nuke mysql nuke < \
-%{_docdir}/%{name}-%{version}/nuke.sql
+Wystarczy zrobiæ jedno:
+mysqladmin create nuke
+mysql nuke < %{_docdir}/%{name}-%{version}/nuke.sql
 
 (wiêcej informacji w %{_docdir}/%{name}-%{version}/README.first)
 
 %prep
-%setup -q -c %{name}-%{version}
+%setup -q
 
 install %{SOURCE1} README.first
 
