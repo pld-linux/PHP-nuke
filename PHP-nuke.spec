@@ -3,14 +3,7 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Jul/1010722.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Jun/1010571.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Jun/1010477.html
-# - SECURITY: http://securitytracker.com/alerts/2004/Jun/1010420.html
-# - SECURITY: http://securitytracker.com/alerts/2004/May/1010186.html
-# - SECURITY: http://securitytracker.com/alerts/2004/May/1010177.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010924.html
-# - SECURITY: http://securitytracker.com/alerts/2004/Apr/1009748.html
-# - SECURITY: http://securitytracker.com/alerts/2004/Apr/1009747.html
-# - SECURITY: http://securitytracker.com/alerts/2004/Apr/1009735.html
-# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011161.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011160.html
 Summary:	Slashdot-like webnews site written in php, easy to install and use
 Summary(pl):	Serwis nowinek WWW w stylu Slashdota napisany w PHP, ³atwy w instalacji i u¿ywaniu
@@ -23,6 +16,7 @@ Source0:	http://phpnuke.org/files/PHP-Nuke-%{version}.zip
 # Source0-md5:	d8651f9f39e1c8e191030bb9df48f0bd
 # Source0-size:	3961035
 Source1:	PHP-Nuke.README.first
+Patch0:		%{name}-admin.php.patch
 #Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
 Requires:	php-mysql
@@ -54,6 +48,7 @@ Wystarczy zrobiæ jedno: mysqladmin create nuke mysql nuke < \
 
 %prep
 %setup -q -c %{name}-%{version}
+%patch0 -p1
 
 install %{SOURCE1} README.first
 
