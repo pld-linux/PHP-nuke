@@ -1,14 +1,14 @@
 Summary:	Slashdot-like webnews site written in php, easy to install and use
 Summary(pl):	Serwis nowinek WWW w stylu Slashdota napisany w PHP, ³atwy w instalacji i u¿ywaniu
 Name:		PHP-nuke
-Version:	7.2
+Version:	7.3
 Release:	1
 License:	GPL
 Group:		Applications/Databases/Interfaces
 Source0:	http://phpnuke.org/files/PHP-Nuke-%{version}.zip
-# Source0-md5:  6a84be4261a500be25c6b0e1a64c0526
+# Source0-md5:	b6bdea4d54e0693e85b96bb405e2c874
 Source1:	PHP-Nuke.README.first
-Icon:		phpnuke.gif
+#Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
 Requires:	php-mysql
 Requires:	php-pcre
