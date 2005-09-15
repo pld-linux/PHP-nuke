@@ -11,6 +11,7 @@ Source1:	PHP-Nuke.README.first
 Source2:	%{name}.conf
 #Icon:		phpnuke.gif
 URL:		http://phpnuke.org/
+BuildRequires:	unzip
 Requires:	php-mysql
 Requires:	php-pcre
 Requires:	webserver
