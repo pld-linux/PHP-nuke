@@ -100,7 +100,7 @@ fi
 %defattr(644,root,root,755)
 %doc Addons* Blocks* Changes* Credits* Install* README* Readme*
 %doc Support* Upgrade* sql/nuke.sql upgrades
-%config(noreplace) %verify(not size mtime md5) /etc/httpd/phpnuke.conf
+%config(noreplace) %verify(not md5 mtime size) /etc/httpd/phpnuke.conf
 %dir %{_nukeroot}
 %config(noreplace) %attr(640,http,http) %{_nukeroot}/config.php
 %{_nukeroot}/[!c]*
