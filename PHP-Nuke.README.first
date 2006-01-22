@@ -1,7 +1,7 @@
 PHP-Nuke RPM INSTALL INSTRUCTIONS
 ---------------------------------
 
-Since you have installed this RPM, you should have apache, Mysql and mod-php3
+Since you have installed this RPM, you should have Apache, MySQL and mod_php
 already installed, so all you have to do is :
 
 1) Create a database called, for example, nuke:
@@ -16,7 +16,7 @@ directory):
 
     mysql nuke < nuke.sql
 
-4) Edit the file "/var/www/html/nuke/config.php3", read the comments for each option, 
+4) Edit the file "/etc/webapps/phpnuke/config.php", read the comments for each option, 
 and make the changes necessary for your installation. 
 
 When you are done, take a look at your phpnuke instalation 
