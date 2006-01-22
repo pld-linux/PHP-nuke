@@ -30,8 +30,9 @@ administration, surveys, customizable blocks, modules and themes with
 multilanguage support.
 
 %description -l pl
-Portal WWW napisany w PHP. Ma du¿e mo¿liwo¶ci, jest ³atwy w instalacji
-u u¿ywaniu.
+System zarz±dzania tre¶ci± oraz portal WWW z administracj± opart± na
+WWW, przegl±dami, konfigurowalnymi blokami, modu³ami i motywami oraz
+obs³ug± wielu jêzyków.
 
 %prep
 %setup -q -c
