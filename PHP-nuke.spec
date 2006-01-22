@@ -13,7 +13,7 @@ URL:		http://phpnuke.org/
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed > 4.0
 BuildRequires:	unzip
-Requires:	php-mysql
+Requires:	php-common >= 3:4.2.0
 Requires:	php-pcre
 Requires:	webapps
 BuildArch:	noarch
