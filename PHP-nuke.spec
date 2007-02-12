@@ -1,5 +1,5 @@
 Summary:	Slashdot-like webnews site written in php, easy to install and use
-Summary(pl.UTF-8):   Serwis nowinek WWW w stylu Slashdota napisany w PHP, łatwy w instalacji i używaniu
+Summary(pl.UTF-8):	Serwis nowinek WWW w stylu Slashdota napisany w PHP, łatwy w instalacji i używaniu
 Name:		PHP-nuke
 Version:	7.8
 Release:	4
