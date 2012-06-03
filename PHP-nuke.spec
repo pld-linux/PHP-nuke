@@ -11,7 +11,7 @@ Source1:	PHP-Nuke.README.first
 Source2:	%{name}.conf
 URL:		http://phpnuke.org/
 BuildRequires:	rpmbuild(macros) >= 1.268
-BuildRequires:	sed > 4.0
+BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 Requires:	php(pcre)
 Requires:	php-common >= 3:4.2.0
